@@ -1,6 +1,6 @@
 "use client";
 
-import { Flower2, Heart, Instagram, Facebook, Mail, MapPin } from "lucide-react";
+import { Flower2, Heart, Camera, MessageCircle, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -44,7 +44,7 @@ export default function Footer() {
               life&rsquo;s every moment. Farm-fresh blooms, hand-tied with love.
             </p>
             <div className="flex gap-3 pt-2">
-              {[Instagram, Facebook, Mail].map((Icon, i) => (
+              {[Camera, MessageCircle, Mail].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"

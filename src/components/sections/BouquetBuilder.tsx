@@ -12,6 +12,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Link from "next/link";
 
 type OptionCategory = {
   label: string;
@@ -253,9 +254,12 @@ export default function BouquetBuilder() {
                   </span>
                 </div>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="flex-col gap-2">
                 <Button className="w-full rounded-full gap-2">
                   Add to Cart — ${totalPrice}
+                </Button>
+                <Button variant="outline" className="w-full rounded-full text-sm" asChild>
+                  <Link href="/bouquet-builder">Open Full Builder</Link>
                 </Button>
               </CardFooter>
             </Card>

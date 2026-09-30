@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import {
   Droplets,
   Scissors,
   Sun,
   Sprout,
   Thermometer,
-  ChevronDown,
+  ArrowRight,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -17,52 +18,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import { careGuides } from "@/lib/data";
 
-const tips = [
-  {
-    icon: Scissors,
-    title: "Trim the Stems",
-    summary: "Cut stems at a 45° angle for better water absorption.",
-    detail:
-      "Using sharp shears or a knife, cut about 1-2 inches off the bottom of each stem at a diagonal. This increases the surface area for water uptake and prevents the stems from sitting flat against the vase bottom, which can block absorption. Re-trim every 2-3 days.",
-  },
-  {
-    icon: Droplets,
-    title: "Clean Water, Happy Blooms",
-    summary: "Change water every 2 days and keep the vase clean.",
-    detail:
-      "Fresh, lukewarm water is best — it contains more dissolved oxygen than cold water. Wash the vase with soap and warm water between changes to prevent bacteria growth that can clog stems. Add the provided flower food packet for essential nutrients.",
-  },
-  {
-    icon: Sun,
-    title: "Light & Placement",
-    summary: "Keep arrangements in bright, indirect light.",
-    detail:
-      "Avoid direct sunlight, heat sources, and drafty areas. A spot near a north or east-facing window is ideal. Keep flowers away from ripening fruit — ethylene gas from fruit can accelerate wilting. At night, move arrangements to a cooler room to extend vase life.",
-  },
-  {
-    icon: Thermometer,
-    title: "Temperature Matters",
-    summary: "Store flowers in a cool area between 65-72°F.",
-    detail:
-      "Most cut flowers last longest at cool room temperatures (65-72°F / 18-22°C). Keep arrangements away from heating vents, radiators, and air conditioning drafts. For overnight storage or before arranging, place in a cool (not cold) location.",
-  },
-  {
-    icon: Sprout,
-    title: "Remove Foliage",
-    summary: "Strip leaves below the water line to prevent rot.",
-    detail:
-      "Any leaves submerged in water will decay quickly, promoting bacterial growth that shortens flower life. Remove all foliage from the lower third to half of each stem. Also remove any damaged or wilting petals from the flower heads as they appear.",
-  },
-  {
-    icon: Droplets,
-    title: "Mist for Refreshment",
-    summary: "Lightly mist your flowers daily for lasting freshness.",
-    detail:
-      "Many flowers, especially tropical varieties, benefit from a gentle daily misting. Use a fine spray bottle filled with clean water. This helps maintain humidity around the blooms and keeps petals hydrated. Avoid soaking delicate petals like roses directly.",
-  },
-];
+const iconMap: Record<string, React.ReactNode> = {
+  Scissors: <Scissors className="w-6 h-6" />,
+  Droplets: <Droplets className="w-6 h-6" />,
+  Sun: <Sun className="w-6 h-6" />,
+  Sprout: <Sprout className="w-6 h-6" />,
+  Thermometer: <Thermometer className="w-6 h-6" />,
+};
 
 export default function CareTips() {
   const [expanded, setExpanded] = useState<number | null>(null);
@@ -77,73 +41,45 @@ export default function CareTips() {
             variant="outline"
             className="rounded-full px-4 py-1 text-sm mb-4"
           >
-            Flower Care
+            Flower Care Guide
           </Badge>
           <h2 className="font-heading text-4xl md:text-5xl leading-tight mb-4">
-            Keep Your Blooms{" "}
-            <span className="text-primary italic font-script">Beautiful</span>
+            Make Your Blooms <span className="text-primary italic font-script">Last</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-lg">
-            Simple tips to help your Petal &amp; Stem arrangements stay fresh
-            and vibrant longer.
+            Expert tips and tricks to keep your Petal &amp; Stem arrangements
+            looking fresh and beautiful longer.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {tips.map((tip, index) => {
-            const Icon = tip.icon;
-            const isOpen = expanded === index;
+          {careGuides.map((guide, index) => {
+            const Icon = iconMap[guide.icon] || <Sprout className="w-6 h-6" />;
+            const isExpanded = expanded === index;
 
             return (
-              <Card
-                key={tip.title}
-                className={cn(
-                  "border-border/60 bg-white/80 backdrop-blur-sm transition-all duration-300 cursor-pointer",
-                  isOpen && "ring-1 ring-primary/30 shadow-md"
-                )}
-                onClick={() => setExpanded(isOpen ? null : index)}
-              >
-                <CardHeader>
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-3">
-                    <Icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <CardTitle className="font-heading text-lg">
-                    {tip.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    {tip.summary}
-                  </p>
-                  {isOpen && (
-                    <div className="mt-3 pt-3 border-t border-border/60">
-                      <p className="text-sm text-foreground/80 leading-relaxed">
-                        {tip.detail}
-                      </p>
+              <Link key={guide.id} href={`/care/${guide.slug}`} className="group">
+                <Card className="border-border/60 bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:border-primary/40 h-full">
+                  <CardHeader>
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-3 group-hover:scale-110 transition-transform">
+                      {Icon}
                     </div>
-                  )}
-                  <div className="mt-3 flex items-center gap-1 text-xs text-muted-foreground">
-                    <ChevronDown
-                      className={cn(
-                        "w-3 h-3 transition-transform",
-                        isOpen && "rotate-180"
-                      )}
-                    />
-                    <span>{isOpen ? "Less" : "Read more"}</span>
-                  </div>
-                </CardContent>
-              </Card>
+                    <CardTitle className="font-heading text-lg group-hover:text-primary transition-colors">
+                      {guide.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {guide.summary}
+                    </p>
+                    <div className="mt-4 flex items-center gap-1 text-sm text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                      Read full guide <ArrowRight className="w-3 h-3" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             );
           })}
-        </div>
-
-        <div className="mt-12 text-center">
-          <p className="text-sm text-muted-foreground">
-            Have a specific flower care question?{" "}
-            <Button variant="link" className="p-0 h-auto text-sm">
-              Contact our florists
-            </Button>
-          </p>
         </div>
       </div>
     </section>

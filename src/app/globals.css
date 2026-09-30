@@ -50,29 +50,32 @@
 }
 
 :root {
-  --background: oklch(0.98 0.01 10);
-  --foreground: oklch(0.25 0.03 30);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.25 0.03 30);
+  --background: oklch(0.985 0.008 30);
+  --foreground: oklch(0.22 0.04 30);
+  --card: oklch(0.995 0 0);
+  --card-foreground: oklch(0.22 0.04 30);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.25 0.03 30);
-  --primary: oklch(0.58 0.15 0);
+  --popover-foreground: oklch(0.22 0.04 30);
+  /* Blush rose — the heart of the brand */
+  --primary: oklch(0.6 0.16 0);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.78 0.08 145);
-  --secondary-foreground: oklch(0.25 0.03 30);
-  --muted: oklch(0.95 0.01 30);
+  /* Sage / stem green — botanical counterpoint */
+  --secondary: oklch(0.76 0.09 145);
+  --secondary-foreground: oklch(0.22 0.04 30);
+  --muted: oklch(0.94 0.015 30);
   --muted-foreground: oklch(0.55 0.03 30);
-  --accent: oklch(0.85 0.06 30);
-  --accent-foreground: oklch(0.35 0.04 30);
+  /* Soft parchment accent */
+  --accent: oklch(0.84 0.05 50);
+  --accent-foreground: oklch(0.3 0.05 30);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.85 0.04 30);
-  --input: oklch(0.85 0.04 30);
-  --ring: oklch(0.58 0.15 0);
-  --chart-1: oklch(0.58 0.15 0);
-  --chart-2: oklch(0.78 0.08 145);
-  --chart-3: oklch(0.85 0.06 30);
-  --chart-4: oklch(0.9 0.05 60);
-  --chart-5: oklch(0.7 0.1 300);
+  --border: oklch(0.82 0.03 40);
+  --input: oklch(0.82 0.03 40);
+  --ring: oklch(0.6 0.16 0);
+  --chart-1: oklch(0.6 0.16 0);
+  --chart-2: oklch(0.76 0.09 145);
+  --chart-3: oklch(0.84 0.05 50);
+  --chart-4: oklch(0.88 0.06 80);
+  --chart-5: oklch(0.65 0.12 330);
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -106,11 +109,65 @@
   .text-balance {
     text-wrap: balance;
   }
-  .bg-rose-petal {
-    background: linear-gradient(135deg, oklch(0.95 0.02 10), oklch(0.92 0.04 30));
+  .font-arrangement {
+    font-family: var(--font-heading);
+    font-variation-settings: "wght" 500;
+  }
+  .bg-blush-glow {
+    background: radial-gradient(ellipse at 50% 0%, oklch(0.92 0.045 10) 0%, transparent 70%);
+  }
+  .bg-sage-sheer {
+    background: linear-gradient(180deg, oklch(0.76 0.09 145 / 0.06), transparent);
   }
   .bg-romantic-gradient {
-    background: linear-gradient(135deg, oklch(0.58 0.15 0 / 0.05), oklch(0.85 0.06 30 / 0.05));
+    background: linear-gradient(135deg, oklch(0.6 0.16 0 / 0.04), oklch(0.84 0.05 50 / 0.04));
+  }
+  .bg-romantic-overlay {
+    background: linear-gradient(180deg, oklch(0.985 0.008 30) 0%, oklch(0.6 0.16 0 / 0.03) 50%, oklch(0.985 0.008 30) 100%);
+  }
+  .text-blush {
+    color: var(--primary);
+  }
+  .text-sage {
+    color: var(--secondary);
+  }
+  .border-blush {
+    border-color: oklch(0.6 0.16 0 / 0.3);
+  }
+  .border-sage {
+    border-color: oklch(0.76 0.09 145 / 0.3);
+  }
+  .shadow-blush {
+    box-shadow: 0 4px 24px oklch(0.6 0.16 0 / 0.12);
+  }
+  .shadow-sage {
+    box-shadow: 0 4px 24px oklch(0.76 0.09 145 / 0.12);
+  }
+  .ring-blush-focus:focus-visible {
+    @apply ring-2 ring-[var(--primary)];
+  }
+  /* Hand-calligraphy decorative element */
+  .hand-drawn-underline {
+    text-decoration: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='6'%3E%3Cpath d='M8,4 Q30,2 60,4 90,2 112,4' fill='none' stroke='%23d68b7c' stroke-width='1.2' opacity='0.5'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: 0 100%;
+    background-size: 120px 6px;
+    padding-bottom: 4px;
+  }
+  /* Translucent bloom motif for backgrounds */
+  .bloom-motif {
+    position: relative;
+  }
+  .bloom-motif::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='60' fill='none' stroke='%23e8b4b8' stroke-width='0.5' opacity='0.15'/%3E%3Ccircle cx='70' cy='70' r='30' fill='none' stroke='%23e8b4b8' stroke-width='0.8' opacity='0.1'/%3E%3Ccircle cx='130' cy='70' r='30' fill='none' stroke='%23e8b4b8' stroke-width='0.8' opacity='0.1'/%3E%3Ccircle cx='70' cy='130' r='30' fill='none' stroke='%23e8b4b8' stroke-width='0.8' opacity='0.1'/%3E%3Ccircle cx='130' cy='130' r='30' fill='none' stroke='%23e8b4b8' stroke-width='0.8' opacity='0.1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    opacity: 0.3;
+    pointer-events: none;
   }
 }
 
@@ -123,4 +180,22 @@
     transform: translateY(-20px) rotate(5deg);
     opacity: 0.6;
   }
+}
+
+@keyframes petal-drift {
+  0% { transform: translateX(0) rotate(0deg); opacity: 0; }
+  20% { opacity: 0.7; }
+  80% { opacity: 0.4; }
+  100% { transform: translateX(80px) translateY(-40px) rotate(25deg); opacity: 0; }
+}
+
+@keyframes bloom-in {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes stem-unfurl {
+  0% { transform: scaleY(0); transform-origin: top center; }
+  100% { transform: scaleY(1); transform-origin: top center; }
 }

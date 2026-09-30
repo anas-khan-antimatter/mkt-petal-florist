@@ -7,11 +7,11 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Seasonal", href: "#seasonal" },
-  { label: "Custom Bouquet", href: "#builder" },
-  { label: "Delivery", href: "#delivery" },
-  { label: "Weddings", href: "#weddings" },
-  { label: "Care Tips", href: "#care" },
+  { label: "Arrangements", href: "/shop" },
+  { label: "Build Your Own", href: "/build" },
+  { label: "Occasions", href: "/occasions" },
+  { label: "Delivery", href: "/delivery" },
+  { label: "Care Guide", href: "/care" },
 ];
 
 export default function Navbar() {
@@ -37,9 +37,11 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Button size="sm" className="rounded-full">
-            Order Now
-          </Button>
+          <Link href="/build">
+            <Button size="sm" className="rounded-full">
+              Build a Bouquet
+            </Button>
+          </Link>
         </nav>
 
         <button
@@ -69,9 +71,11 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Button size="sm" className="rounded-full w-full mt-4">
-            Order Now
-          </Button>
+          <Link href="/build" className="block mt-2">
+            <Button size="sm" className="rounded-full w-full">
+              Build a Bouquet
+            </Button>
+          </Link>
         </div>
       </div>
     </header>

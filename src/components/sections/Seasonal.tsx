@@ -11,45 +11,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Link from "next/link";
+import { bouquets } from "@/lib/data";
 
-const arrangements = [
-  {
-    id: 1,
-    name: "Spring Awakening",
-    tagline: "Daffodils, tulips, ranunculus, and eucalyptus",
-    price: 68,
-    season: "Spring",
-    color: "from-pink-200 via-yellow-100 to-green-200",
-    icon: Leaf,
-  },
-  {
-    id: 2,
-    name: "Summer Romance",
-    tagline: "Peonies, sunflowers, lavender, and ferns",
-    price: 74,
-    season: "Summer",
-    color: "from-orange-200 via-rose-200 to-purple-200",
-    icon: Sun,
-  },
-  {
-    id: 3,
-    name: "Autumn Hearth",
-    tagline: "Dahlias, chrysanthemums, berries, and dried grasses",
-    price: 72,
-    season: "Fall",
-    color: "from-amber-200 via-red-200 to-brown-200",
-    icon: Star,
-  },
-  {
-    id: 4,
-    name: "Winter Noir",
-    tagline: "Amaryllis, evergreens, white roses, and pine cones",
-    price: 78,
-    season: "Winter",
-    color: "from-slate-100 via-blue-100 to-white",
-    icon: Heart,
-  },
-];
+const iconMap: Record<string, React.ReactNode> = {
+  Leaf: <Leaf className="w-16 h-16 text-white/60" />,
+  Sun: <Sun className="w-16 h-16 text-white/60" />,
+  Star: <Star className="w-16 h-16 text-white/60" />,
+  Heart: <Heart className="w-16 h-16 text-white/60" />,
+};
+
+const featured = bouquets.filter((b) => b.featured).slice(0, 4);
 
 export default function Seasonal() {
   const [selected, setSelected] = useState<number | null>(null);
@@ -76,74 +48,68 @@ export default function Seasonal() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {arrangements.map((arr) => {
-            const Icon = arr.icon;
+          {featured.map((arr) => {
             const isSelected = selected === arr.id;
+            const Icon = iconMap[arr.icon] || <Heart className="w-16 h-16 text-white/60" />;
 
             return (
-              <Card
-                key={arr.id}
-                className={`relative overflow-hidden transition-all duration-300 cursor-pointer border ${
-                  isSelected
-                    ? "border-primary shadow-lg shadow-primary/20 scale-[1.03]"
-                    : "border-border hover:border-primary/50 hover:shadow-md"
-                }`}
-                onClick={() =>
-                  setSelected(isSelected ? null : arr.id)
-                }
-              >
-                {/* Color wash */}
-                <div
-                  className={`h-40 bg-gradient-to-br ${arr.color} flex items-center justify-center`}
+              <Link key={arr.id} href={`/shop/${arr.slug}`}>
+                <Card
+                  className={`relative overflow-hidden transition-all duration-300 cursor-pointer border h-full ${
+                    isSelected
+                      ? "border-primary shadow-lg shadow-primary/20 scale-[1.03]"
+                      : "border-border hover:border-primary/50 hover:shadow-md"
+                  }`}
                 >
-                  <Icon className="w-16 h-16 text-white/60" />
-                </div>
-
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <Badge
-                      variant="secondary"
-                      className="rounded-full text-xs"
-                    >
-                      {arr.season}
-                    </Badge>
-                    <span className="font-heading text-xl font-bold">
-                      ${arr.price}
-                    </span>
-                  </div>
-                  <CardTitle className="font-heading text-xl mt-2">
-                    {arr.name}
-                  </CardTitle>
-                </CardHeader>
-
-                <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {arr.tagline}
-                  </p>
-                </CardContent>
-
-                <CardFooter>
-                  <Button
-                    size="sm"
-                    variant={isSelected ? "default" : "outline"}
-                    className="rounded-full w-full"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelected(isSelected ? null : arr.id);
-                    }}
+                  {/* Color wash */}
+                  <div
+                    className={`h-40 bg-gradient-to-br ${arr.imageGradient} flex items-center justify-center`}
                   >
-                    {isSelected ? "Selected" : "Choose Arrangement"}
-                  </Button>
-                </CardFooter>
-              </Card>
+                    {Icon}
+                  </div>
+
+                  <CardHeader>
+                    <div className="flex items-center justify-between">
+                      <Badge
+                        variant="secondary"
+                        className="rounded-full text-xs"
+                      >
+                        {arr.season}
+                      </Badge>
+                      <span className="font-heading text-xl font-bold">
+                        ${arr.price}
+                      </span>
+                    </div>
+                    <CardTitle className="font-heading text-xl mt-2">
+                      {arr.name}
+                    </CardTitle>
+                  </CardHeader>
+
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {arr.tagline}
+                    </p>
+                  </CardContent>
+
+                  <CardFooter>
+                    <span
+                      className="text-sm rounded-full w-full inline-flex items-center justify-center h-7 border border-border bg-background hover:bg-muted transition-colors"
+                    >
+                      View Details
+                    </span>
+                  </CardFooter>
+                </Card>
+              </Link>
             );
           })}
         </div>
 
         <div className="mt-12 text-center">
-          <Button className="rounded-full px-8 gap-2">
-            View Full Collection
-            <ArrowRight className="w-4 h-4" />
+          <Button className="rounded-full px-8 gap-2" asChild>
+            <Link href="/shop">
+              View Full Collection
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </Button>
         </div>
       </div>

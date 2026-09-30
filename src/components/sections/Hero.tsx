@@ -1,6 +1,7 @@
 "use client";
 
 import { Flower2, Sparkles } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
@@ -47,16 +48,20 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button size="lg" className="rounded-full px-10 text-base">
-            Explore Arrangements
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="rounded-full px-10 text-base"
-          >
-            Build Your Bouquet
-          </Button>
+          <Link href="/shop">
+            <Button size="lg" className="rounded-full px-10 text-base">
+              Explore Arrangements
+            </Button>
+          </Link>
+          <Link href="/build">
+            <Button
+              size="lg"
+              variant="outline"
+              className="rounded-full px-10 text-base"
+            >
+              Build Your Bouquet
+            </Button>
+          </Link>
         </div>
 
         <div className="mt-16 flex items-center justify-center gap-8 text-sm text-muted-foreground">

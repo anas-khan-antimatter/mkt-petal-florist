@@ -7,21 +7,21 @@ import { Separator } from "@/components/ui/separator";
 
 const footerLinks = {
   shop: [
-    { label: "Seasonal Arrangements", href: "#seasonal" },
-    { label: "Custom Bouquet", href: "#builder" },
+    { label: "All Bouquets", href: "/shop" },
+    { label: "Custom Bouquet", href: "/bouquet-builder" },
+    { label: "Occasions", href: "/occasions" },
     { label: "Gift Cards", href: "#" },
-    { label: "Subscription", href: "#" },
   ],
   services: [
-    { label: "Wedding Floristry", href: "#weddings" },
-    { label: "Corporate Events", href: "#" },
-    { label: "Sympathy Flowers", href: "#" },
+    { label: "Wedding Floristry", href: "/occasions/wedding" },
+    { label: "Sympathy Flowers", href: "/occasions/sympathy" },
+    { label: "Everyday Blooms", href: "/occasions/everyday" },
     { label: "Workshops", href: "#" },
   ],
   company: [
     { label: "About Us", href: "#" },
-    { label: "Care Tips", href: "#care" },
-    { label: "Delivery Zones", href: "#delivery" },
+    { label: "Care Guides", href: "/#care" },
+    { label: "Delivery Zones", href: "/delivery" },
     { label: "Contact", href: "#" },
   ],
 };

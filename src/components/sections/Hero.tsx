@@ -2,6 +2,7 @@
 
 import { Flower2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -47,15 +48,16 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button size="lg" className="rounded-full px-10 text-base">
-            Explore Arrangements
+          <Button size="lg" className="rounded-full px-10 text-base" asChild>
+            <Link href="/shop">Explore Arrangements</Link>
           </Button>
           <Button
             size="lg"
             variant="outline"
             className="rounded-full px-10 text-base"
+            asChild
           >
-            Build Your Bouquet
+            <Link href="/bouquet-builder">Build Your Bouquet</Link>
           </Button>
         </div>
 

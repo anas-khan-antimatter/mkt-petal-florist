@@ -2,16 +2,16 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Flower2 } from "lucide-react";
+import { Menu, X, Flower2, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Seasonal", href: "#seasonal" },
-  { label: "Custom Bouquet", href: "#builder" },
-  { label: "Delivery", href: "#delivery" },
-  { label: "Weddings", href: "#weddings" },
-  { label: "Care Tips", href: "#care" },
+  { label: "Shop", href: "/shop" },
+  { label: "Occasions", href: "/occasions" },
+  { label: "Custom Bouquet", href: "/bouquet-builder" },
+  { label: "Delivery", href: "/delivery" },
+  { label: "Care Guides", href: "/#care" },
 ];
 
 export default function Navbar() {
@@ -37,8 +37,8 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Button size="sm" className="rounded-full">
-            Order Now
+          <Button size="sm" className="rounded-full" asChild>
+            <Link href="/shop">Order Now</Link>
           </Button>
         </nav>
 
@@ -55,7 +55,7 @@ export default function Navbar() {
       <div
         className={cn(
           "md:hidden overflow-hidden transition-all duration-300 border-t border-border/40",
-          open ? "max-h-80" : "max-h-0"
+          open ? "max-h-96" : "max-h-0"
         )}
       >
         <div className="px-6 py-4 space-y-3 bg-white">
@@ -69,8 +69,8 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Button size="sm" className="rounded-full w-full mt-4">
-            Order Now
+          <Button size="sm" className="rounded-full w-full mt-4" asChild>
+            <Link href="/shop" onClick={() => setOpen(false)}>Order Now</Link>
           </Button>
         </div>
       </div>

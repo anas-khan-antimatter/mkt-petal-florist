@@ -1,21 +1,118 @@
 {
-  "root": "/tmp/am-ws/ch_mkt_petalflorist_6c7a1e",
-  "name": "ch_mkt_petalflorist_6c7a1e",
-  "generatedAt": "2026-09-29T23:09:05.348Z",
-  "fileCount": 1,
-  "dirCount": 1,
+  "root": "/tmp/am-ws/c-1790733025493-8g8bu",
+  "name": "c-1790733025493-8g8bu",
+  "generatedAt": "2026-09-30T17:40:09.888Z",
+  "fileCount": 45,
+  "dirCount": 7,
   "languages": {
-    "Markdown": 1
+    "Markdown": 8,
+    "JSON": 5,
+    "JavaScript": 2,
+    "TypeScript": 22,
+    "CSS": 1
   },
   "keyFiles": [
-    "README.md"
+    "package.json",
+    "README.md",
+    "tsconfig.json"
   ],
   "directories": [
     {
+      "dir": ".antimatter/wiki",
+      "fileCount": 6,
+      "files": [
+        "index.md",
+        "log.md",
+        "map.json",
+        "map.md",
+        "overview.md",
+        "schema.md"
+      ],
+      "symbols": []
+    },
+    {
       "dir": "(root)",
+      "fileCount": 11,
+      "files": [
+        ".gitignore",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "components.json",
+        "eslint.config.mjs",
+        "next.config.ts",
+        "package-lock.json",
+        "package.json",
+        "postcss.config.mjs",
+        "README.md",
+        "tsconfig.json"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "public",
+      "fileCount": 5,
+      "files": [
+        "file.svg",
+        "globe.svg",
+        "next.svg",
+        "vercel.svg",
+        "window.svg"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/app",
+      "fileCount": 4,
+      "files": [
+        "favicon.ico",
+        "globals.css",
+        "layout.tsx",
+        "page.tsx"
+      ],
+      "symbols": [
+        {
+          "name": "metadata",
+          "kind": "const"
+        }
+      ]
+    },
+    {
+      "dir": "src/components/sections",
+      "fileCount": 8,
+      "files": [
+        "BouquetBuilder.tsx",
+        "CareTips.tsx",
+        "Delivery.tsx",
+        "Footer.tsx",
+        "Hero.tsx",
+        "Navbar.tsx",
+        "Seasonal.tsx",
+        "Weddings.tsx"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/components/ui",
+      "fileCount": 10,
+      "files": [
+        "badge.tsx",
+        "button.tsx",
+        "card.tsx",
+        "carousel.tsx",
+        "input.tsx",
+        "navigation-menu.tsx",
+        "select.tsx",
+        "separator.tsx",
+        "sheet.tsx",
+        "textarea.tsx"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/lib",
       "fileCount": 1,
       "files": [
-        "README.md"
+        "utils.ts"
       ],
       "symbols": []
     }

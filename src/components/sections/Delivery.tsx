@@ -3,51 +3,9 @@
 import { MapPin, Truck, Clock, CheckCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
-const zones = [
-  {
-    name: "Downtown Core",
-    zone: "Zone 1",
-    fee: "Free",
-    time: "1-2 hours",
-    minOrder: "$35",
-    color: "bg-green-50 border-green-200",
-    textColor: "text-green-700",
-  },
-  {
-    name: "Metro Area",
-    zone: "Zone 2",
-    fee: "$5",
-    time: "2-4 hours",
-    minOrder: "$45",
-    color: "bg-blue-50 border-blue-200",
-    textColor: "text-blue-700",
-  },
-  {
-    name: "Suburbs",
-    zone: "Zone 3",
-    fee: "$10",
-    time: "4-6 hours",
-    minOrder: "$55",
-    color: "bg-amber-50 border-amber-200",
-    textColor: "text-amber-700",
-  },
-  {
-    name: "Extended Area",
-    zone: "Zone 4",
-    fee: "$15",
-    time: "Next Day",
-    minOrder: "$65",
-    color: "bg-rose-50 border-rose-200",
-    textColor: "text-rose-700",
-  },
-];
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
+import { deliveryZones } from "@/lib/data";
 
 const perks = [
   {
@@ -110,51 +68,40 @@ export default function Delivery() {
           })}
         </div>
 
-        {/* Zone cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {zones.map((zone) => (
-            <Card
-              key={zone.name}
-              className={`border ${zone.color}`}
+        {/* Zones */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          {deliveryZones.map((zone) => (
+            <div
+              key={zone.zone}
+              className={`rounded-xl border p-5 ${zone.color}`}
             >
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <Badge variant="outline" className={zone.textColor}>
-                    {zone.zone}
-                  </Badge>
-                  <MapPin className="w-4 h-4 text-muted-foreground" />
-                </div>
-                <CardTitle className="font-heading text-lg mt-2">
-                  {zone.name}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Delivery Fee</span>
-                  <span className="font-medium">{zone.fee}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Est. Time</span>
-                  <span className="font-medium">{zone.time}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Min. Order</span>
-                  <span className="font-medium">${zone.minOrder}</span>
-                </div>
-              </CardContent>
-            </Card>
+              <div className="flex items-center justify-between mb-3">
+                <span className={`text-xs font-semibold uppercase tracking-wider ${zone.textColor}`}>
+                  {zone.zone}
+                </span>
+                <span className="font-heading text-lg font-bold">
+                  {zone.fee}
+                </span>
+              </div>
+              <h4 className="font-heading text-base mb-1">{zone.name}</h4>
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Clock className="w-3 h-3" />
+                {zone.time}
+              </div>
+              <div className="text-xs text-muted-foreground mt-1">
+                Min. ${zone.minOrder}
+              </div>
+            </div>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-sm text-muted-foreground mb-4">
-            Not sure about your zone? Enter your address at checkout for
-            accurate details.
-          </p>
-          <Button variant="outline" className="rounded-full px-8 gap-2">
-            <MapPin className="w-4 h-4" />
-            Check My Address
-          </Button>
+        <div className="text-center">
+          <Link href="/delivery">
+            <Button className="rounded-full px-8 gap-2">
+              <MapPin className="w-4 h-4" />
+              Check Your Zone
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

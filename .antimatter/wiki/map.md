@@ -1,9 +1,9 @@
 # Workspace Map — c-1790733025493-8g8bu
-_Generated 2026-09-30 · 45 files · 7 directories_  
+_Generated 2026-10-01 · 53 files · 14 directories_  
 _Deterministic structural map. Regenerate with the `map` tool or "Antimatter: Map Workspace". Do not hand-edit._
 
 ## Languages
-- TypeScript: 22
+- TypeScript: 30
 - Markdown: 8
 - JSON: 5
 - JavaScript: 2
@@ -28,11 +28,34 @@ _Deterministic structural map. Regenerate with the `map` tool or "Antimatter: Ma
 - symbols: metadata (const)
 - files: favicon.ico, globals.css, layout.tsx, page.tsx
 
+### `src/app/api/order` — 1 file
+- symbols: POST (fn), OrderItem (type), OrderRequest (type), OrderResponse (type)
+- files: route.ts
+
+### `src/app/care` — 1 file
+- files: page.tsx
+
+### `src/app/delivery` — 1 file
+- files: page.tsx
+
+### `src/app/occasions` — 1 file
+- files: page.tsx
+
+### `src/app/occasions/[slug]` — 1 file
+- files: page.tsx
+
+### `src/app/shop` — 1 file
+- files: page.tsx
+
+### `src/app/shop/[slug]` — 1 file
+- files: page.tsx
+
 ### `src/components/sections` — 8 files
 - files: BouquetBuilder.tsx, CareTips.tsx, Delivery.tsx, Footer.tsx, Hero.tsx, Navbar.tsx, Seasonal.tsx, Weddings.tsx
 
 ### `src/components/ui` — 10 files
 - files: badge.tsx, button.tsx, card.tsx, carousel.tsx, input.tsx, navigation-menu.tsx, select.tsx, separator.tsx, sheet.tsx, textarea.tsx
 
-### `src/lib` — 1 file
-- files: utils.ts
+### `src/lib` — 2 files
+- symbols: getArrangement (fn), getOccasion (fn), Arrangement (interface), arrangements (const), occasions (const)
+- files: data.ts, utils.ts

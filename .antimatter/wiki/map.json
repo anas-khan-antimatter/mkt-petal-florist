@@ -1,14 +1,14 @@
 {
   "root": "/tmp/am-ws/c-1790733025493-8g8bu",
   "name": "c-1790733025493-8g8bu",
-  "generatedAt": "2026-09-30T22:30:44.133Z",
-  "fileCount": 45,
-  "dirCount": 7,
+  "generatedAt": "2026-10-01T14:45:18.297Z",
+  "fileCount": 53,
+  "dirCount": 14,
   "languages": {
     "Markdown": 8,
     "JSON": 5,
     "JavaScript": 2,
-    "TypeScript": 22,
+    "TypeScript": 30,
     "CSS": 1
   },
   "keyFiles": [
@@ -77,6 +77,79 @@
       ]
     },
     {
+      "dir": "src/app/api/order",
+      "fileCount": 1,
+      "files": [
+        "route.ts"
+      ],
+      "symbols": [
+        {
+          "name": "POST",
+          "kind": "fn"
+        },
+        {
+          "name": "OrderItem",
+          "kind": "type"
+        },
+        {
+          "name": "OrderRequest",
+          "kind": "type"
+        },
+        {
+          "name": "OrderResponse",
+          "kind": "type"
+        }
+      ]
+    },
+    {
+      "dir": "src/app/care",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/app/delivery",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/app/occasions",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/app/occasions/[slug]",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/app/shop",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/app/shop/[slug]",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
+    },
+    {
       "dir": "src/components/sections",
       "fileCount": 8,
       "files": [
@@ -110,11 +183,33 @@
     },
     {
       "dir": "src/lib",
-      "fileCount": 1,
+      "fileCount": 2,
       "files": [
+        "data.ts",
         "utils.ts"
       ],
-      "symbols": []
+      "symbols": [
+        {
+          "name": "getArrangement",
+          "kind": "fn"
+        },
+        {
+          "name": "getOccasion",
+          "kind": "fn"
+        },
+        {
+          "name": "Arrangement",
+          "kind": "interface"
+        },
+        {
+          "name": "arrangements",
+          "kind": "const"
+        },
+        {
+          "name": "occasions",
+          "kind": "const"
+        }
+      ]
     }
   ]
 }

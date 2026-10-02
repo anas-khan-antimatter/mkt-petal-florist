@@ -1,14 +1,14 @@
 {
   "root": "/tmp/am-ws/c-1790733025493-8g8bu",
   "name": "c-1790733025493-8g8bu",
-  "generatedAt": "2026-10-01T15:21:05.612Z",
-  "fileCount": 53,
-  "dirCount": 14,
+  "generatedAt": "2026-10-02T22:14:43.408Z",
+  "fileCount": 57,
+  "dirCount": 16,
   "languages": {
+    "JSON": 7,
     "Markdown": 8,
-    "JSON": 5,
     "JavaScript": 2,
-    "TypeScript": 30,
+    "TypeScript": 31,
     "CSS": 1
   },
   "keyFiles": [
@@ -17,6 +17,14 @@
     "tsconfig.json"
   ],
   "directories": [
+    {
+      "dir": ".antimatter/lanes",
+      "fileCount": 1,
+      "files": [
+        "ship.json"
+      ],
+      "symbols": []
+    },
     {
       "dir": ".antimatter/wiki",
       "fileCount": 6,
@@ -32,19 +40,21 @@
     },
     {
       "dir": "(root)",
-      "fileCount": 11,
+      "fileCount": 13,
       "files": [
         ".gitignore",
         "AGENTS.md",
         "CLAUDE.md",
         "components.json",
         "eslint.config.mjs",
+        "FORCE_REBUILD",
         "next.config.ts",
         "package-lock.json",
         "package.json",
         "postcss.config.mjs",
         "README.md",
-        "tsconfig.json"
+        "tsconfig.json",
+        "vercel.json"
       ],
       "symbols": []
     },
@@ -100,6 +110,14 @@
           "kind": "type"
         }
       ]
+    },
+    {
+      "dir": "src/app/build",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
     },
     {
       "dir": "src/app/care",
